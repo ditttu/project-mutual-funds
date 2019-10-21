@@ -1,0 +1,28 @@
+.search-page{
+    width:100vw;
+    max-width: 100%;
+    height: auto;
+    padding-top: 120px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    
+}
+
+@media only screen and (max-width:660px){
+    .search-page{
+
+        h3{
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        h4{
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+    }
+}
