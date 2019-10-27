@@ -1,7 +1,7 @@
 import React from 'react'
 import './navbar.styles.scss'
 
-const Navbar = ({changeRoute}) => {
+const Navigatebar = ({changeRoute}) => {
     return (
         <div className='my-navbar'>
             <div className='nav-menu-item' onClick={() =>{ changeRoute('search')}}>Search</div>
@@ -10,4 +10,4 @@ const Navbar = ({changeRoute}) => {
     )
 }
 
-export default Navbar
+export default Navigatebar;

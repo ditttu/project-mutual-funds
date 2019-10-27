@@ -2,7 +2,7 @@ import React from 'react';
 import './pages/Search/Search.styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-//import Navbar from './components/navbar/navbar.component';
+import Navigatebar from './components/navbar/navbar.component';
 import SearchBox from './components/search-box/searchBox.component';
 import SearchPage from './pages/Search/Search.page';
 import ComparisonPage from './pages/Comparision/Comparision.page';
