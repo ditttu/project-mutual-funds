@@ -111,8 +111,10 @@ class App extends React.Component {
         bringInForComparision = (mutualFund) => {
 
             let array = this.state.selectedForComparision;
+            if (array.length < 5) {
+                array.push(mutualFund);
 
-            array.push(mutualFund);
+            }
 
             this.setState({
                 selectedForComparision: array

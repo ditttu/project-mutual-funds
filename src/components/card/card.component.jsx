@@ -31,9 +31,12 @@ export class MutualFundCard extends Component {
             this.setState((prevState) => ({selected: false}));
             this.props.removeFromComparision(this.props);
         }
-        else{
+        else if(this.props.selectedForComparision.length<5){
             this.setState((prevState) => ({selected: true}));
             this.props.bringInForComparision(this.props);
+        }
+        else {
+            alert('5 funds already selected!')
         }
     }
 
