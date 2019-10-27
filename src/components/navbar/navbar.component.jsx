@@ -1,12 +1,13 @@
 import React from 'react'
-import './navbar.styles.scss'
+// import './navbar.styles.scss'
+import Nav from 'react-bootstrap/Nav'
 
 const Navigatebar = ({changeRoute}) => {
     return (
-        <div className='my-navbar'>
-            <div className='nav-menu-item' onClick={() =>{ changeRoute('search')}}>Search</div>
-            <div className='nav-menu-item' onClick={() =>{ changeRoute('compare')}}>Compare</div>
-        </div>
+        <Nav fill variant="tabs" activeKey="search" onSelect={changeRoute}>
+            <Nav.Link eventKey="search">Search</Nav.Link>
+            <Nav.Link eventKey="compare">Compare</Nav.Link>
+        </Nav>
     )
 }
 
