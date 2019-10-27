@@ -1,13 +1,14 @@
 import React from 'react';
 
-import './cardsContainer.styles.scss';
+// import './cardsContainer.styles.scss';
 
 import MutualFundCard from '../card/card.component';
+import { CardColumns } from 'react-bootstrap';
 
 const CardsContainer = ({list, selectedForComparision, bringInForComparision, removeFromComparision}) => {
     
     return (
-        <div className='cards-container'>
+        <CardColumns>
             {
                 list.map(mutualFund => (
                     <MutualFundCard 
@@ -18,7 +19,7 @@ const CardsContainer = ({list, selectedForComparision, bringInForComparision, re
                         removeFromComparision={removeFromComparision}/>
                 ))
             }
-        </div>
+        </CardColumns>
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './card.styles.scss'
+// import './card.styles.scss'
 
 import {Card,Table} from 'react-bootstrap';
 
@@ -81,7 +81,7 @@ export class MutualFundCard extends Component {
                 // </div>
 //             </div>
 
-         <Card style={{width: '20 rem'}} className="text-center">
+         <Card style={{width: '15 rem'}} className="text-center">
              <Card.Header> 
                 <div className='header'>
                         <div className='name'>
