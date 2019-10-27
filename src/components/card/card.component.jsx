@@ -82,19 +82,11 @@ export class MutualFundCard extends Component {
 //             </div>
 
          <Card style={{width: '15 rem'}} className="text-center">
-             <Card.Header> 
-                <div className='header'>
+             <Card.Header style={{background:(this.state.selected?'#9999ff':'#eee')}} onClick={this.selectForComparision}>
                         <div className='name'>
                             <h4>{name}</h4>
                             <span>Rating: {rating}/5</span>
                         </div>
-                        <div className='select'>
-                            <div 
-                                className='radio' 
-                                style={{background:(this.state.selected?'blue':'#fff')}}
-                                onClick={this.selectForComparision}/>
-                            </div>
-                </div>
             </Card.Header>
             <Card.Body>
                 <Card.Text>
