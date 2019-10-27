@@ -2,13 +2,13 @@ import React from 'react';
 import './pages/Search/Search.styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Navbar from './components/navbar/navbar.component';
+//import Navbar from './components/navbar/navbar.component';
 import SearchBox from './components/search-box/searchBox.component';
 import SearchPage from './pages/Search/Search.page';
 import ComparisonPage from './pages/Comparision/Comparision.page';
 import CardsContainer from './components/cardsContainer/cardsContainer.component';
 // import Pagination from 'react-bootstrap/Pagination';
-import {DropdownButton, Dropdown, Pagination} from 'react-bootstrap';
+import {DropdownButton, Dropdown, Pagination, Navbar} from 'react-bootstrap';
 
 const pageCards = [6, 9, 12, 15];
 
@@ -128,6 +128,10 @@ class App extends React.Component {
             selectedForComparision: array
         })
     }
+    clear = () => {
+        
+        this.setState({selectedForComparision: []});
+    }
 
     render() {
         const { mutualFunds, currentRoute, selectedForComparision, currentSearchInput } = this.state;
@@ -135,25 +139,68 @@ class App extends React.Component {
         let currentPage = null;
 
         if (currentRoute === 'search') {
-            currentPage = (<div className="search-page"><SearchBox currentSearchInput={currentSearchInput} onSubmitSearch={this.getSearchInput}/>
-            <h3>Mutual Funds selected for comparision: {selectedForComparision.length}</h3>
-            <h4>{mutualFunds.length?`Here are your mutual fund results`:`No Result Found`}</h4>
-            <DropdownButton id="dropdown-basic-button" title="Cards On Page">
-              {pageCards.map(n => (
-                <Dropdown.Item active={this.state.cardsOnPage === n} key={n} eventKey={n} onSelect={this.changeCardsOnPage}>{n}</Dropdown.Item>
-              ))}
-            </DropdownButton>
-        <Pagination>{new Array(this.state.numOfPages).fill(1).map((a, i) => (
-          <Pagination.Item key={i} active={i+1 === this.state.currentPage} onClick={this.changePage}>{i+1}</Pagination.Item>
-        ))}</Pagination>
-        {mutualFunds.length !== 0 && <CardsContainer 
-                list = {this.renderPageCards(mutualFunds)}
-                selectedForComparision={selectedForComparision} 
-                bringInForComparision={this.bringInForComparision}
-                removeFromComparision={this.removeFromComparision}/>}</div>
-        )
-        } else if (currentRoute === 'compare') {
-            currentPage = < ComparisonPage fundsToBeCompared = { this.state.selectedForComparision }
+            currentPage = (
+            <div className="search-page">
+
+
+                <SearchBox 
+                    currentSearchInput={currentSearchInput} 
+                    onSubmitSearch={this.getSearchInput}
+                />
+                <h4>
+                    Mutual Funds selected for comparision: {selectedForComparision.length}
+                </h4>
+                <h4>
+                    {mutualFunds.length?
+                        `Here are your mutual fund results`
+                        :`No Result Found`
+                    }
+                </h4>
+
+                <DropdownButton 
+                    id="dropdown-basic-button" 
+                    title="Cards On Page"
+                >
+                    {pageCards.map(n => (
+                        <Dropdown.Item 
+                            active={this.state.cardsOnPage === n} 
+                            key={n} 
+                            eventKey={n} 
+                            onSelect={this.changeCardsOnPage}
+                        >
+                            {n}
+                        </Dropdown.Item>
+                    ))}
+                 </DropdownButton>
+
+                <Pagination>
+                    {new Array(this.state.numOfPages).fill(1).map((a, i) => (
+                    <Pagination.Item 
+                        key={i} 
+                        active={i+1 === this.state.currentPage} 
+                        onClick={this.changePage}
+                    >
+                        {i+1} 
+                    </Pagination.Item>
+                    ))}
+                </Pagination>
+
+                {mutualFunds.length !== 0 && 
+                <CardsContainer 
+                    list = {this.renderPageCards(mutualFunds)}
+                    selectedForComparision={selectedForComparision} 
+                    bringInForComparision={this.bringInForComparision}
+                    removeFromComparision={this.removeFromComparision}
+                />}
+
+
+            </div>
+        )} 
+        else if (currentRoute === 'compare') {
+            currentPage = 
+            < ComparisonPage 
+                fundsToBeCompared = { this.state.selectedForComparision } 
+                clearFunds={this.clear}
             />
         }
 
@@ -166,7 +213,8 @@ class App extends React.Component {
             
         );
     }
-
 }
+
+
 
 export default App;

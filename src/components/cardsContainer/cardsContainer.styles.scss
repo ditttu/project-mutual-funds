@@ -40,6 +40,7 @@
         height: 50vh;
         overflow-y: scroll;
         border: 1px solid #000;
+        
         grid-template-columns: repeat(1,minmax(20rem,1fr));
     }
 

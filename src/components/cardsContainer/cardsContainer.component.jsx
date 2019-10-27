@@ -1,7 +1,8 @@
-import React from 'react'
-import './cardsContainer.styles.scss'
+import React from 'react';
 
-import MutualFundCard from '../card/card.component'
+import './cardsContainer.styles.scss';
+
+import MutualFundCard from '../card/card.component';
 
 const CardsContainer = ({list, selectedForComparision, bringInForComparision, removeFromComparision}) => {
     
@@ -21,4 +22,4 @@ const CardsContainer = ({list, selectedForComparision, bringInForComparision, re
     )
 }
 
-export default CardsContainer
+export default CardsContainer;

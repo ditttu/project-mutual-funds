@@ -3,7 +3,10 @@ import './Comparision.styles.scss';
 
 import {ComparisonTable} from '../../components/comparison-table/comparison-table.component';
 
-const ComparisonPage = ({fundsToBeCompared}) => {
+
+const ComparisonPage = ({fundsToBeCompared, clearFunds}) => {
+    
+
     return (
         
         <div className='comparision-page'>
@@ -13,6 +16,7 @@ const ComparisonPage = ({fundsToBeCompared}) => {
                     />
                 :  <div> <h1>No mutual funds selected :( </h1> </div>
         }
+        <button onClick= {clearFunds}> CLEAR </button>
         </div>
     )
 }

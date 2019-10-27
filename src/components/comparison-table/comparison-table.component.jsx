@@ -2,11 +2,13 @@ import React from 'react';
 
 import './comparison-table.styles.scss';
 
+import { Table } from 'react-bootstrap';
+
 export const ComparisonTable = ( {fundsToBeCompared} ) => {
      console.log(fundsToBeCompared)
     return (
         <div className= 'comparision-table'>
-            <table>
+            <Table striped bordered hover responsive>
             
                 <thead>
                     <tr>
@@ -30,7 +32,7 @@ export const ComparisonTable = ( {fundsToBeCompared} ) => {
                     )}
                 </tbody>
                 
-            </table>
+            </Table>
             
         </div>
     );
